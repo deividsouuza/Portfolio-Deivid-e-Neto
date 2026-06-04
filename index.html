@@ -270,23 +270,61 @@
 <!-- ─── TECH STACK ─── -->
 <div class="tech-section" id="tech">
   <div class="container">
-    <div class="section-header fade-in">
-      <h2 class="section-title">Tecnologias que utilizamos</h2>
-      <p class="section-sub">Stack moderna e robusta para entregar soluções de alta qualidade.</p>
-    </div>
-    
-    <div class="tech-grid">
-      <div class="tech-pill fade-in"><div class="tech-dot" style="background:#e44d26;"></div>HTML5</div>
-      <div class="tech-pill fade-in"><div class="tech-dot" style="background:#264de4;"></div>CSS3</div>
-      <div class="tech-pill fade-in"><div class="tech-dot" style="background:#f7df1e;"></div>JavaScript</div>
-      <div class="tech-pill fade-in"><div class="tech-dot" style="background:#61dafb;"></div>React</div>
-      <div class="tech-pill fade-in"><div class="tech-dot" style="background:#7952b3;"></div>Bootstrap</div>
-      <div class="tech-pill fade-in"><div class="tech-dot" style="background:#3572a5;"></div>Python</div>
-      <div class="tech-pill fade-in"><div class="tech-dot" style="background:#092e20;"></div>Django</div>
-      <div class="tech-pill fade-in"><div class="tech-dot" style="background:#336791;"></div>PostgreSQL</div>
-      <div class="tech-pill fade-in"><div class="tech-dot" style="background:#f05032;"></div>Git</div>
-      <div class="tech-pill fade-in"><div class="tech-dot" style="background:#e07020;"></div>Java</div>
-      <div class="tech-pill fade-in"><div class="tech-dot" style="background:#6db33f;"></div>Spring Boot</div>
+    <div class="tech-content">
+      <!-- Quem Somos Nós -->
+      <div class="about-us fade-in">
+        <h2 class="about-us-title">Quem somos <span class="gradient-text">nós?</span></h2>
+        <p class="about-us-text">Somos Deivid e Neto, dois desenvolvedores apaixonados por tecnologia com mais de 3 anos de experiência criando soluções digitais. Nossa missão é transformar ideias em sistemas funcionais, escaláveis e com design moderno.</p>
+        <p class="about-us-text">Trabalhamos com metodologias ágeis e foco total na entrega de valor para nossos clientes. Cada projeto é tratado como único, com dedicação e atenção aos detalhes.</p>
+        <div class="about-us-highlights">
+          <div class="about-highlight">
+            <svg viewBox="0 0 24 24"><path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+            Comunicação transparente
+          </div>
+          <div class="about-highlight">
+            <svg viewBox="0 0 24 24"><path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+            Prazos cumpridos
+          </div>
+          <div class="about-highlight">
+            <svg viewBox="0 0 24 24"><path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+            Código limpo e documentado
+          </div>
+        </div>
+      </div>
+
+      <!-- Tecnologias -->
+      <div class="tech-side fade-in">
+        <h3 class="tech-side-title">Tecnologias que dominamos</h3>
+        <div class="tech-categories">
+          <div class="tech-category">
+            <div class="tech-category-label">Frontend</div>
+            <div class="tech-category-items">
+              <div class="tech-pill"><div class="tech-dot" style="background:#e44d26;"></div>HTML5</div>
+              <div class="tech-pill"><div class="tech-dot" style="background:#264de4;"></div>CSS3</div>
+              <div class="tech-pill"><div class="tech-dot" style="background:#f7df1e;"></div>JavaScript</div>
+              <div class="tech-pill"><div class="tech-dot" style="background:#61dafb;"></div>React</div>
+              <div class="tech-pill"><div class="tech-dot" style="background:#7952b3;"></div>Bootstrap</div>
+            </div>
+          </div>
+          <div class="tech-category">
+            <div class="tech-category-label">Backend</div>
+            <div class="tech-category-items">
+              <div class="tech-pill"><div class="tech-dot" style="background:#3572a5;"></div>Python</div>
+              <div class="tech-pill"><div class="tech-dot" style="background:#092e20;"></div>Django</div>
+              <div class="tech-pill"><div class="tech-dot" style="background:#6db33f;"></div>JavaScript</div>
+              <div class="tech-pill"><div class="tech-dot" style="background:#cbea05;"></div>Node.Js</div>
+            </div>
+          </div>
+          <div class="tech-category">
+            <div class="tech-category-label">Banco de Dados & Ferramentas</div>
+            <div class="tech-category-items">
+              <div class="tech-pill"><div class="tech-dot" style="background:#085ea4;"></div>MySQL</div>
+              <div class="tech-pill"><div class="tech-dot" style="background:#336791;"></div>PostgreSQL</div>
+              <div class="tech-pill"><div class="tech-dot" style="background:#f05032;"></div>Git</div>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </div>
@@ -389,9 +427,18 @@
 
   window.addEventListener('scroll', () => {
     let current = '';
-    sections.forEach(s => {
-      if (window.scrollY >= s.offsetTop - 80) current = s.id;
-    });
+    
+    // Check if we're at the bottom of the page
+    const isAtBottom = (window.innerHeight + window.scrollY) >= document.body.offsetHeight - 50;
+    
+    if (isAtBottom) {
+      current = 'cta';
+    } else {
+      sections.forEach(s => {
+        if (window.scrollY >= s.offsetTop - 100) current = s.id;
+      });
+    }
+    
     navLinks.forEach(a => {
       a.classList.remove('active');
       if (a.getAttribute('href') === '#' + current) a.classList.add('active');

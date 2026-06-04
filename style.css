@@ -262,7 +262,7 @@ nav {
     background: var(--card);
     border: 1px solid var(--border);
     border-radius: var(--radius);
-    padding: 20px;
+    padding: 24px;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -270,7 +270,8 @@ nav {
     transition: all .4s cubic-bezier(.4,0,.2,1);
     position: relative;
     overflow: hidden;
-    width: 200px;
+    flex: 1;
+    max-width: 280px;
 }
 
 .founder-card::before {
@@ -293,8 +294,8 @@ nav {
 .founder-card:hover::before { opacity: 1; }
 
 .founder-photo {
-    width: 140px; 
-    height: 140px;
+    width: 180px; 
+    height: 180px;
     border-radius: 16px;
     background: var(--card2);
     border: 3px solid var(--border2);
@@ -457,13 +458,14 @@ nav {
 
 .stats-inner {
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(3, 1fr);
     gap: 16px;
 }
 
 .stat-item { 
     display: flex; 
     align-items: center; 
+    justify-content: center;
     gap: 14px; 
     padding: 8px 12px; 
 }
@@ -502,7 +504,7 @@ section { padding: 80px 0; }
 /* ─── SERVICES ─── */
 .services-grid {
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(3, 1fr);
     gap: 18px;
 }
 
@@ -609,7 +611,102 @@ section { padding: 80px 0; }
     background: var(--bg3);
     border-top: 1px solid var(--border);
     border-bottom: 1px solid var(--border);
-    padding: 60px 0;
+    padding: 80px 0;
+}
+
+.tech-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    align-items: start;
+}
+
+.about-us {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.about-us-title {
+    font-family: 'Syne', sans-serif;
+    font-size: clamp(24px, 3vw, 32px);
+    font-weight: 800;
+    letter-spacing: -.5px;
+    line-height: 1.2;
+}
+
+.about-us-title .gradient-text {
+    background: linear-gradient(135deg, var(--accent), var(--accent2));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.about-us-text {
+    font-size: 15px;
+    color: var(--text2);
+    line-height: 1.75;
+}
+
+.about-us-highlights {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-top: 8px;
+}
+
+.about-highlight {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-size: 14px;
+    color: var(--text);
+}
+
+.about-highlight svg {
+    width: 18px;
+    height: 18px;
+    fill: var(--green);
+    flex-shrink: 0;
+}
+
+.tech-side {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+.tech-side-title {
+    font-family: 'Syne', sans-serif;
+    font-size: 18px;
+    font-weight: 700;
+    color: var(--text);
+}
+
+.tech-categories {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.tech-category {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.tech-category-label {
+    font-size: 12px;
+    color: var(--text3);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-weight: 500;
+}
+
+.tech-category-items {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
 }
 
 .tech-grid {
@@ -626,8 +723,8 @@ section { padding: 80px 0; }
     background: var(--card);
     border: 1px solid var(--border);
     border-radius: var(--radius-sm);
-    padding: 12px 16px;
-    font-size: 13px;
+    padding: 10px 14px;
+    font-size: 12px;
     font-weight: 500;
     transition: all .2s;
 }
@@ -803,7 +900,29 @@ footer {
         justify-content: center;
     }
     
-    .stats-inner { grid-template-columns: repeat(2, 1fr); gap: 20px; }
+    .tech-content {
+        grid-template-columns: 1fr;
+        gap: 40px;
+    }
+    
+    .about-us {
+        text-align: center;
+        align-items: center;
+    }
+    
+    .about-us-highlights {
+        align-items: center;
+    }
+    
+    .tech-side {
+        align-items: center;
+    }
+    
+    .tech-category-items {
+        justify-content: center;
+    }
+    
+    .stats-inner { grid-template-columns: repeat(3, 1fr); gap: 20px; }
     .services-grid { grid-template-columns: repeat(2, 1fr); }
     .projects-grid { grid-template-columns: repeat(2, 1fr); }
     .team-contact { grid-template-columns: 1fr; }
@@ -817,10 +936,15 @@ footer {
     
     .founder-card {
         width: 100%;
-        max-width: 260px;
+        max-width: 280px;
     }
     
-    .stats-inner { grid-template-columns: 1fr 1fr; }
+    .founder-photo {
+        width: 160px;
+        height: 160px;
+    }
+    
+    .stats-inner { grid-template-columns: 1fr; }
     .services-grid { grid-template-columns: 1fr; }
     .projects-grid { grid-template-columns: 1fr; }
     .cta-card { padding: 40px 24px; }
