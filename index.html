@@ -110,7 +110,7 @@
             </div>
             <div class="founder-social">
               <!-- Substituir pelo link real do GitHub -->
-              <a href="#" class="social-icon" aria-label="GitHub">
+              <a href="https://github.com/deividsouuza" target="_blank" class="social-icon" aria-label="GitHub">
                 <svg viewBox="0 0 24 24"><path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0 1 12 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0 0 22 12.017C22 6.484 17.522 2 12 2z"/></svg>
               </a>
               <a href="https://www.instagram.com/deivinnh_/" class="social-icon" aria-label="Instagram" target="_blank">
@@ -298,23 +298,15 @@
       </div>
 
       <div class="project-card fade-in">
-        <div class="project-thumb project-thumb-3">
-          <div class="project-thumb-ui">
-            <div class="ui-row">
-              <div class="ui-block" style="flex:2;background:rgba(124,92,252,.3);"></div>
-              <div class="ui-block"></div>
-            </div>
-            <div class="ui-bar medium accent"></div>
-            <div class="ui-bar short accent2"></div>
-            <div class="ui-bar medium"></div>
-          </div>
+        <div class="project-thumb project-thumb-3 shop-gallery-open" role="button" tabindex="0" aria-label="Abrir imagens da Simulação de Marketplace">
+          <img src="shop-imagens/Captura%20de%20tela%202026-06-28%20020103.png" alt="Tela da Simulação de Marketplace">
           <div class="project-badge">Em desenvolvimento</div>
         </div>
         <div class="project-body">
-          <div class="project-name">Sistema de Agendamento</div>
-          <div class="project-desc">Plataforma simples para marcar horários e organizar atendimentos do seu negócio.</div>
+          <div class="project-name">Simulação de Marketplace</div>
+          <div class="project-desc">Interface de loja online para exibir produtos, simular carrinho e organizar compras.</div>
           <div class="project-actions">
-            <a href="#" class="project-link">Ver projeto</a>
+            <button class="project-link shop-gallery-open" type="button">Ver projeto</button>
             <a href="#cta" class="project-link highlight">Solicitar similar</a>
           </div>
         </div>
@@ -523,6 +515,41 @@
   </div>
 </div>
 
+<div class="project-modal" id="shop-modal" aria-hidden="true">
+  <div class="project-modal-backdrop" data-close-gallery></div>
+  <div class="project-modal-panel" role="dialog" aria-modal="true" aria-labelledby="shop-modal-title">
+    <div class="project-modal-head">
+      <div>
+        <div class="project-modal-kicker">Projeto em destaque</div>
+        <h3 id="shop-modal-title">Simulação de Marketplace</h3>
+      </div>
+      <button class="project-modal-close" type="button" aria-label="Fechar galeria" data-close-gallery>&times;</button>
+    </div>
+
+    <div class="project-gallery">
+      <button class="gallery-arrow gallery-arrow-prev" type="button" aria-label="Imagem anterior">
+        &#8249;
+      </button>
+
+      <div class="gallery-track" id="shop-gallery-track" tabindex="0" aria-live="polite">
+        <img src="shop-imagens/Captura%20de%20tela%202026-06-28%20020103.png" alt="Tela 1 da Simulação de Marketplace">
+        <img src="shop-imagens/Captura%20de%20tela%202026-06-28%20020126.png" alt="Tela 2 da Simulação de Marketplace">
+        <img src="shop-imagens/Captura%20de%20tela%202026-06-28%20020140.png" alt="Tela 3 da Simulação de Marketplace">
+        <img src="shop-imagens/Captura%20de%20tela%202026-06-28%20020147.png" alt="Tela 4 da Simulação de Marketplace">
+      </div>
+
+      <button class="gallery-arrow gallery-arrow-next" type="button" aria-label="Pr&oacute;xima imagem">
+        &#8250;
+      </button>
+    </div>
+
+    <div class="gallery-footer">
+      <span id="shop-gallery-counter">1/4</span>
+      <span>Use as setas ou arraste para ver as telas.</span>
+    </div>
+  </div>
+</div>
+
 <footer>
   <div class="container">
     <div class="footer-inner">
@@ -678,6 +705,13 @@
     trackId: 'pedidos-gallery-track',
     counterId: 'pedidos-gallery-counter',
     openerSelector: '.pedidos-gallery-open'
+  });
+
+  initProjectGallery({
+    modalId: 'shop-modal',
+    trackId: 'shop-gallery-track',
+    counterId: 'shop-gallery-counter',
+    openerSelector: '.shop-gallery-open'
   });
 </script>
 
